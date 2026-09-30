@@ -1,0 +1,41 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Menu, Ninth Coal (concept)</title>
+  <meta name="description" content="The menu at Ninth Coal, a fictional wood-fire kitchen. Snacks, embers, fire, sides and sweets, all cooked over oak and charcoal.">
+  <meta name="theme-color" content="#160D09">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body class="page page--menu">
+<!--@nav-->
+<main id="main">
+  <header class="band">
+    <h1>The menu</h1>
+    <p class="lede">Everything is cooked over the one fire. Dishes leave the kitchen when they are ready, not in courses. Order two or three at a time and keep going.</p>
+  </header>
+
+  <div class="filters" role="group" aria-label="Filter the menu">
+    <div class="filters__groups" id="groups"></div>
+    <div class="filters__diet">
+      <button type="button" class="chip" data-diet="V" aria-pressed="false">Vegetarian</button>
+      <button type="button" class="chip" data-diet="GF" aria-pressed="false">Gluten-free</button>
+    </div>
+    <p class="filters__count" id="count" role="status" aria-live="polite"></p>
+  </div>
+
+  <div class="menu" id="menu"></div>
+  <p class="empty" id="empty" hidden>Nothing on the menu matches that. <button type="button" class="linkbtn" id="reset">Show everything</button></p>
+
+  <section class="drinks" aria-labelledby="drinks-h">
+    <h2 id="drinks-h">To drink</h2>
+    <ul class="leaders" id="drinks"></ul>
+  </section>
+
+  <p class="fine menu__fine"><b>V</b> vegetarian. <b>GF</b> made without gluten-containing ingredients, but cooked in a kitchen that uses flour. Tell the counter about any allergy and they will tell you what they can and cannot promise. Dishes marked ≈20 min are cooked to order. This menu is invented for a concept project and no dish is for sale.</p>
+</main>
+<!--@foot-->
+<script type="module" src="/src/menu.ts"></script>
+</body>
+</html>

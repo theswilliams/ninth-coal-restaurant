@@ -1,0 +1,137 @@
+{
+  "schemaVersion": 2,
+  "generatedAt": "2026-09-30T00:00:00Z",
+  "title": "Design System: Ninth Coal",
+  "extensions": {
+    "colorMeta": {
+      "street": { "role": "neutral", "displayName": "Street Black", "canonical": "#0B1014", "tonalRamp": ["#030506", "#0B1014", "#111A21", "#1A252E", "#2E3B46", "#56646F", "#8C98A1", "#C6CDD2"] },
+      "char": { "role": "neutral", "displayName": "Char", "canonical": "#160D09", "tonalRamp": ["#0A0604", "#160D09", "#21130D", "#2E1A11", "#4A2E20", "#75574A", "#A38C82", "#D3C6C0"] },
+      "gilt": { "role": "secondary", "displayName": "Gilt", "canonical": "#DDAE4E", "tonalRamp": ["#2A1F08", "#4D3A12", "#71561B", "#957326", "#B28A3A", "#DDAE4E", "#EBCB84", "#F6E6BF"] },
+      "coal": { "role": "primary", "displayName": "Coal Red", "canonical": "#BF341B", "tonalRamp": ["#2A0C06", "#4D160B", "#711F10", "#A92B14", "#BF341B", "#D9684F", "#E89C8B", "#F5CFC6"] },
+      "flame": { "role": "tertiary", "displayName": "Flame", "canonical": "#FF9A2E", "tonalRamp": ["#3A1E03", "#663505", "#994F08", "#CC6A0C", "#FF9A2E", "#FFB75F", "#FFD391", "#FFEBCC"] },
+      "bone": { "role": "neutral", "displayName": "Bone", "canonical": "#F0E4D0", "tonalRamp": ["#3A342A", "#5E5545", "#857967", "#A99C86", "#C7B9A1", "#DDD0BA", "#F0E4D0", "#FAF5EB"] },
+      "ash": { "role": "neutral", "displayName": "Ash", "canonical": "#BBAA93", "tonalRamp": ["#2E2921", "#4F4739", "#706453", "#918471", "#BBAA93", "#CDBFAB", "#E0D6C6", "#F1ECE2"] }
+    },
+    "typographyMeta": {
+      "display": { "displayName": "Display", "purpose": "Page h1 in the band at the top of inner pages; serif, capped at 14ch." },
+      "headline": { "displayName": "Headline", "purpose": "Section h2." },
+      "title": { "displayName": "Title", "purpose": "h3, legends, field labels, dish names, FAQ questions." },
+      "body": { "displayName": "Body", "purpose": "Running text and controls in the humanist sans, 62ch max." },
+      "label": { "displayName": "Label", "purpose": "Uppercase tracked terms, diet markers, slip row names." }
+    },
+    "shadows": [
+      { "name": "button-lift", "value": "inset 0 1px 0 rgba(255,255,255,.22), 0 8px 18px rgba(0,0,0,.4)", "purpose": "Primary button at rest; 12px/24px on hover." },
+      { "name": "open-glow", "value": "0 0 10px 1px rgba(255,154,46,.7)", "purpose": "Open-status dot only." },
+      { "name": "field-focus", "value": "0 0 0 3px rgba(221,174,78,.25)", "purpose": "Halo on focused text inputs." },
+      { "name": "window-glow", "value": "drop-shadow(0 0 40px rgba(255,130,40,.25))", "purpose": "Warm spill around the lit window, scaled by live fire intensity." }
+    ],
+    "motion": [
+      { "name": "ease", "value": "cubic-bezier(.16, 1, .3, 1)", "purpose": "Button lift and arrow nudge." },
+      { "name": "view-transition", "value": "350ms", "purpose": "Cross-page root transition; disabled under prefers-reduced-motion." },
+      { "name": "fire-tick", "value": "~24fps (42ms)", "purpose": "Dithered canvas fire; static single frame when reduced motion is set." }
+    ],
+    "breakpoints": [
+      { "name": "menu-reserve", "value": "900px" },
+      { "name": "rail", "value": "1024px" }
+    ]
+  },
+  "components": [
+    {
+      "name": "Primary Button",
+      "kind": "button",
+      "refersTo": "button-primary",
+      "description": "The doorway-shaped coal action: request a seat.",
+      "html": "<button class=\"ds-btn\">Request this seat</button>",
+      "css": ".ds-btn { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; background: var(--coal, #BF341B); color: var(--bone, #F0E4D0); font: 600 1rem 'Hanken Grotesk Variable', system-ui, sans-serif; letter-spacing: .02em; border: 0; border-radius: 18px 18px 4px 4px; cursor: pointer; box-shadow: inset 0 1px 0 rgba(255,255,255,.22), 0 8px 18px rgba(0,0,0,.4); transition: transform .2s, background .2s, box-shadow .2s; } .ds-btn:hover { background: var(--coal-hi, #A92B14); transform: translateY(-2px); } .ds-btn:active { transform: translateY(1px); } .ds-btn:focus-visible { outline: 2px solid var(--flame, #FF9A2E); outline-offset: 3px; }"
+    },
+    {
+      "name": "Ghost Button",
+      "kind": "button",
+      "refersTo": "button-ghost",
+      "description": "Secondary action with a gilt outline.",
+      "html": "<button class=\"ds-btn-ghost\">Start again</button>",
+      "css": ".ds-btn-ghost { display: inline-flex; align-items: center; justify-content: center; min-height: 52px; padding: 0 28px; background: transparent; color: var(--gilt, #DDAE4E); font: 600 1rem 'Hanken Grotesk Variable', system-ui, sans-serif; border: 1.5px solid var(--gilt, #DDAE4E); border-radius: 18px 18px 4px 4px; cursor: pointer; transition: background .2s; } .ds-btn-ghost:hover { background: rgba(221,174,78,.12); } .ds-btn-ghost:focus-visible { outline: 2px solid var(--flame, #FF9A2E); outline-offset: 3px; }"
+    },
+    {
+      "name": "Chip",
+      "kind": "chip",
+      "refersTo": "chip",
+      "description": "Pill filter and choice chip; selected fills gilt.",
+      "html": "<button class=\"ds-chip\">Snacks</button> <button class=\"ds-chip\" aria-pressed=\"true\">From the fire</button>",
+      "css": ".ds-chip { display: inline-flex; align-items: center; min-height: 44px; padding: 0 18px; border: 1.5px solid rgba(221,174,78,.22); border-radius: 99px; background: transparent; color: var(--bone, #F0E4D0); font: 600 .9375rem 'Hanken Grotesk Variable', system-ui, sans-serif; cursor: pointer; transition: background .2s, border-color .2s, color .2s; } .ds-chip:hover { border-color: var(--gilt, #DDAE4E); } .ds-chip[aria-pressed='true'] { background: var(--gilt, #DDAE4E); border-color: var(--gilt, #DDAE4E); color: #1A1008; } .ds-chip:focus-visible { outline: 2px solid var(--flame, #FF9A2E); outline-offset: 3px; }"
+    },
+    {
+      "name": "Text Field",
+      "kind": "input",
+      "refersTo": "field",
+      "description": "Dark inset field with serif label and gilt focus halo.",
+      "html": "<div class=\"ds-field\"><label for=\"ds-name\">Name</label><input id=\"ds-name\"></div>",
+      "css": ".ds-field label { display: block; margin-bottom: 12px; font: 1.25rem 'Young Serif', Georgia, serif; color: var(--bone, #F0E4D0); } .ds-field input { width: 100%; min-height: 50px; padding: 12px 14px; background: var(--char-2, #21130D); border: 1.5px solid rgba(221,174,78,.22); border-radius: 8px; color: var(--bone, #F0E4D0); font: 1rem 'Hanken Grotesk Variable', system-ui, sans-serif; caret-color: var(--flame, #FF9A2E); } .ds-field input:focus { border-color: var(--gilt, #DDAE4E); outline: none; box-shadow: 0 0 0 3px rgba(221,174,78,.25); }"
+    },
+    {
+      "name": "Rail Navigation",
+      "kind": "nav",
+      "refersTo": "nav-rail",
+      "description": "Desktop left rail; vertical serif links, current in gilt with a coal edge.",
+      "html": "<nav class=\"ds-rail\"><a href=\"#\">Menu</a><a href=\"#\" aria-current=\"page\">Visit</a></nav>",
+      "css": ".ds-rail { display: flex; flex-direction: column; gap: 28px; align-items: center; width: 96px; padding: 28px 0; background: var(--street, #0B1014); border-right: 1px solid rgba(221,174,78,.22); } .ds-rail a { writing-mode: vertical-rl; transform: rotate(180deg); text-decoration: none; font: .9375rem 'Young Serif', Georgia, serif; letter-spacing: .14em; text-transform: uppercase; color: var(--ash, #BBAA93); padding: 6px 4px; transition: color .25s; } .ds-rail a:hover { color: var(--bone, #F0E4D0); } .ds-rail a[aria-current='page'] { color: var(--gilt, #DDAE4E); box-shadow: inset -2px 0 0 var(--coal, #BF341B); } .ds-rail a:focus-visible { outline: 2px solid var(--flame, #FF9A2E); outline-offset: 3px; }"
+    },
+    {
+      "name": "Menu Row",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Dish name, dotted leader, serif price, Ash description.",
+      "html": "<div class=\"ds-dish\"><div class=\"ds-dish-top\"><h3>Hearth flatbread</h3><span class=\"ds-dots\"></span><span class=\"ds-price\">14</span></div><p>Charred, with smoked butter.</p></div>",
+      "css": ".ds-dish-top { display: flex; align-items: baseline; gap: 10px; } .ds-dish h3 { margin: 0; font: 400 1.1875rem/1.08 'Young Serif', Georgia, serif; color: var(--bone, #F0E4D0); } .ds-dots { flex: 1; min-width: 16px; border-bottom: 2px dotted rgba(221,174,78,.35); transform: translateY(-4px); } .ds-price { font: 1.125rem 'Young Serif', Georgia, serif; color: var(--gilt, #DDAE4E); font-variant-numeric: tabular-nums; } .ds-dish p { margin: 4px 0 0; color: var(--ash, #BBAA93); font-size: .9375rem; }"
+    },
+    {
+      "name": "Open Status",
+      "kind": "custom",
+      "refersTo": "",
+      "description": "Dot plus text; open state glows flame.",
+      "html": "<div class=\"ds-status\"><span class=\"ds-dot\"></span><b>Open now</b></div>",
+      "css": ".ds-status { display: flex; align-items: center; gap: 12px; font-size: .9375rem; color: var(--bone, #F0E4D0); } .ds-dot { width: 9px; height: 9px; border-radius: 50%; background: var(--flame, #FF9A2E); box-shadow: 0 0 10px 1px rgba(255,154,46,.7); } .ds-status b { font-weight: 700; }"
+    },
+    {
+      "name": "Booking Slip",
+      "kind": "card",
+      "refersTo": "booking-slip",
+      "description": "Cream receipt mirroring the form; the only light surface.",
+      "html": "<aside class=\"ds-slip\"><p class=\"ds-slip-head\">Ninth Coal</p><dl><div><dt>Night</dt><dd>Fri</dd></div><div><dt>Time</dt><dd>23:00</dd></div></dl></aside>",
+      "css": ".ds-slip { max-width: 360px; padding: 26px 26px 30px; background: #EFE3CC; color: #2A1A0C; border-radius: 4px; } .ds-slip-head { margin: 0; padding-bottom: 12px; font: 1rem 'Young Serif', Georgia, serif; border-bottom: 1.5px dashed rgba(42,26,12,.45); } .ds-slip dl { margin: 12px 0 0; } .ds-slip div { display: flex; justify-content: space-between; padding: 8px 0; } .ds-slip dt { font-size: .8125rem; letter-spacing: .1em; text-transform: uppercase; color: #6B4A2A; } .ds-slip dd { margin: 0; font: 1.125rem 'Young Serif', Georgia, serif; }"
+    }
+  ],
+  "narrative": {
+    "northStar": "The Lit Window",
+    "overview": "The system is a cold midnight street with one warm aperture in it. Street surfaces are blue-black; interior surfaces are char brown-black; light, and therefore colour, exists only where the fire is. Gilt is flat signwriter's gold leaf for lettering and rules, coal red is the fire and the one action, and amber appears only inside flame and live status. Everything else is tinted bone and ash on dark.\n\nDensity is moderate and unhurried: generous section padding, hairline gilt rules between list rows, and a menu set like a painted price board with dotted leaders. The two faces split the work: a sturdy old-style serif for names, prices and headings, a warm humanist sans for reading and controls. All art is authored (inline SVG and one canvas fire); no rasters ship.",
+    "keyCharacteristics": [
+      "Two grounds: cold street (street family) for entry, home hero, footer and visit; warm char (char family) for interior content.",
+      "Coal red is reserved for the primary action and fire; gilt carries everything typographic and structural.",
+      "Flat planes, hairline gilt rules (rgba(221,174,78,.22)), no decorative gradients beyond the street-to-char handoff and the window's spill of warm light.",
+      "Dotted leaders tie names to prices and days to hours.",
+      "One live dithered fire is the brightest thing on the page."
+    ],
+    "rules": [
+      { "name": "The Only-Where-The-Fire-Is Rule", "body": "Warm light and saturated colour appear only at the fire, the window, the primary action and live status. Surrounding surfaces stay dark and low-chroma.", "section": "colors" },
+      { "name": "The Flat Gold Rule", "body": "Gilt is a flat fill or a hairline, never a gradient or metallic effect.", "section": "colors" },
+      { "name": "The Serif-Names-And-Numbers Rule", "body": "Anything the visitor reads as a name, a heading, a time or a price is serif; anything they read as a sentence or press is sans.", "section": "typography" },
+      { "name": "The Light-Is-Earned Rule", "body": "A glow is allowed only around something that is literally lit (window, open dot, focused field). No ambient glows on cards or headings.", "section": "elevation" }
+    ],
+    "dos": [
+      "Do keep two grounds: street for entry, hero, footer and visit; char for interior content, meeting with a linear-gradient handoff.",
+      "Do reserve Coal Red for the primary action and fire; use Gilt for type, prices and rules.",
+      "Do set names, headings, times and prices in Young Serif and everything else in Hanken Grotesk.",
+      "Do separate rows with 1px gilt hairlines at 22% alpha rather than boxes.",
+      "Do use the 2px Flame focus ring with 3px offset on every interactive element, and a static-fire reduced-motion fallback.",
+      "Do keep touch targets at least 44px (chips), 48px (stepper), 52px (buttons, dock).",
+      "Do pair any state colour with a second signal (strike-through, letter marker, text, aria state)."
+    ],
+    "donts": [
+      "Don't add photography or raster art; authored SVG, CSS and canvas only.",
+      "Don't use Flame or glows on surfaces that are not lit.",
+      "Don't put gradients on gilt or use gilt as a large fill other than the selected chip.",
+      "Don't introduce a third typeface or a capitals display face.",
+      "Don't wrap content in rounded card boxes."
+    ]
+  }
+}

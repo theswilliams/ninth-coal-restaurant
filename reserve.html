@@ -1,0 +1,93 @@
+<!doctype html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Reserve, Ninth Coal (concept)</title>
+  <meta name="description" content="Reserve a seat at Ninth Coal, a fictional wood-fire kitchen. The form is a concept: nothing is sent or stored.">
+  <meta name="theme-color" content="#160D09">
+  <link rel="icon" href="favicon.svg" type="image/svg+xml">
+</head>
+<body class="page page--reserve">
+<!--@nav-->
+<main id="main">
+  <header class="band">
+    <h1>Reserve a seat</h1>
+    <p class="lede">Half the counter is kept for people who walk in, so the other half can be booked. Tables are for four to six and go first.</p>
+  </header>
+
+  <div class="res">
+    <form class="form" id="form" novalidate>
+      <fieldset>
+        <legend>Which night</legend>
+        <div class="chips" id="nights"></div>
+      </fieldset>
+
+      <fieldset>
+        <legend>How many</legend>
+        <div class="stepper">
+          <button type="button" id="less" aria-label="One fewer guest">−</button>
+          <output id="party" for="less more" aria-live="polite">2</output>
+          <button type="button" id="more" aria-label="One more guest">+</button>
+          <span class="stepper__hint" id="partyHint">guests</span>
+        </div>
+      </fieldset>
+
+      <fieldset>
+        <legend>Where</legend>
+        <div class="chips" id="seats">
+          <label class="opt"><input type="radio" name="seat" value="counter" checked><span>At the counter</span></label>
+          <label class="opt"><input type="radio" name="seat" value="table"><span>At a table</span></label>
+        </div>
+        <p class="hint" id="seatHint"></p>
+      </fieldset>
+
+      <fieldset>
+        <legend>What time</legend>
+        <div class="chips" id="times"></div>
+        <p class="hint" id="timeHint"></p>
+      </fieldset>
+
+      <div class="field">
+        <label for="name">Name</label>
+        <input id="name" name="name" autocomplete="name" aria-describedby="name-err">
+        <p class="err" id="name-err" hidden></p>
+      </div>
+      <div class="field">
+        <label for="contact">Email or phone</label>
+        <input id="contact" name="contact" autocomplete="email" aria-describedby="contact-err">
+        <p class="err" id="contact-err" hidden></p>
+      </div>
+      <div class="field">
+        <label for="note">Allergies or anything we should know <span class="opt-label">(optional)</span></label>
+        <textarea id="note" name="note" rows="3"></textarea>
+      </div>
+
+      <button class="btn" type="submit">Request this seat</button>
+      <p class="fine">Concept project: pressing the button sends nothing and stores nothing.</p>
+    </form>
+
+    <aside class="slip" id="slip" aria-label="Your booking summary" aria-live="polite">
+      <p class="slip__head">Ninth Coal · Nine Cinder Row</p>
+      <dl class="slip__rows">
+        <div><dt>Night</dt><dd id="s-night">–</dd></div>
+        <div><dt>Time</dt><dd id="s-time">–</dd></div>
+        <div><dt>Party</dt><dd id="s-party">2</dd></div>
+        <div><dt>Seat</dt><dd id="s-seat">Counter</dd></div>
+        <div><dt>Name</dt><dd id="s-name">–</dd></div>
+      </dl>
+      <p class="slip__fine">Concept slip. Not a booking.</p>
+    </aside>
+
+    <div class="done" id="done" hidden tabindex="-1">
+      <h2>Nothing was sent.</h2>
+      <p id="doneText"></p>
+      <p>Ninth Coal is a concept project, so there is no kitchen to hold a seat. This is what the confirmation would say.</p>
+      <button class="btn btn--ghost" type="button" id="again">Start again</button>
+    </div>
+  </div>
+</main>
+<!--@foot-->
+<script type="module" src="/src/reserve.ts"></script>
+</body>
+</html>
